@@ -1,0 +1,20 @@
+def twoSum( num, target): ### seeing ordered array ---> binary search
+
+    for index in range(len(num)):
+        imin = index + 1
+        imax = len(num) - 1
+        while(imin <= imax):
+            mid = int((imax + imin)/2)
+            if num[mid] == target - num[index]:
+                return (index+1,num[index+1:].index(target - num[index])+index+2)
+            elif num[mid] < target - num[index]:
+                imin = mid + 1
+            else:
+                imax = mid - 1
+
+    return ()
+
+
+
+num = [0,0,3,4]
+print(twoSum(num,0))
